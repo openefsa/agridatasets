@@ -9,7 +9,8 @@ BugReports: https://github.com/picasa/agridatasets/issues
 Imports:
     tidyr,
     dplyr,
-    lubridate
+    lubridate,
+    rsunflo
 License: GPL
 RoxygenNote: 5.0.1
 LazyData: true

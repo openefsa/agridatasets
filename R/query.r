@@ -1,4 +1,18 @@
 
+# get meteo-france or climbox station ID
+#' @export get_station_id
+
+get_station_id <- function(latitude, longitude, data=station_index, network="climbox", n=1) {
+  
+  results <- station_index[[network]] %>% 
+    mutate(distance=distance_haversine(lat, lon, latitude, longitude)) %>%
+    arrange(distance) %>%
+    slice(1:n) %>%
+    select(id_station, lat, lon, distance, commune, type)
+  
+  return(results)
+}
+
 # get soil parameters for sunflo from ESDB
 #' @export get_soil_esdb
 
