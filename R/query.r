@@ -1,8 +1,11 @@
+# get geocode from a string
+#' @export get_geocode
+# do(geocode(paste0(.$code_insee, ", France"), source="google", output = "latlona"))
 
 # get meteo-france or climbox station ID
 #' @export get_station_id
 
-get_station_id <- function(latitude, longitude, data=station_index, network="climbox", n=1) {
+get_station_id <- function(latitude, longitude, data=station_index, network="climbox", n=1, ...) {
   
   results <- station_index[[network]] %>% 
     mutate(distance=distance_haversine(lat, lon, latitude, longitude)) %>%
@@ -16,7 +19,7 @@ get_station_id <- function(latitude, longitude, data=station_index, network="cli
 # get soil parameters for sunflo from ESDB
 #' @export get_soil_esdb
 
-get_soil_esdb <- function(lat, lon, data=soil_france){
+get_soil_esdb <- function(lat, lon, data=soil_france, ...){
   # get closer grid position
   index <- which.min(sqrt((data$lat-lat)^2 + (data$lon-lon)^2))
   
@@ -28,7 +31,7 @@ get_soil_esdb <- function(lat, lon, data=soil_france){
       wilting_point_1=10,
       field_capacity_1=(awc_ptf_t/(density_t*300) + wilting_point_1/100)*100,
       wilting_point_2=10,
-      field_capacity_2=(awc_ptf_s/(density_s*(depth-300)) + wilting_point_2/100)*100,
+      field_capacity_2=ifelse(depth==300, 10, (awc_ptf_s/(density_s*(depth-300)) + wilting_point_2/100)*100),
       stone_content=mean(gravel_t, gravel_s)/100
     ) %>%
     select(
