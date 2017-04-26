@@ -1,6 +1,7 @@
 # get geocode from a string
 #' @export get_geocode
 # do(geocode(paste0(.$code_insee, ", France"), source="google", output = "latlona"))
+get_geocode <- function() NULL
 
 # get meteo-france or climbox station ID
 #' @export get_station_id
