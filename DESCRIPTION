@@ -1,9 +1,9 @@
 Package: agridatasets
 Title: Open datasets for crop modeling describing climate and soil in France.
-Description: Open datasets for climatic data (1975-2014, 25x25 km grid cells) and soil characterization (1x1 km grid cells) allowing easier parameterization for crop simulation models.
+Description: Open datasets for climatic data (1975-2014, 25x25 km grid cells) and soil characterization (1x1 km grid cells) allowing easier parameterization for crop simulation models
 Version: 0.1
-Author: Pierre Casadebaig <pierre.casadebaig@toulouse.inra.fr>
-Maintainer: Pierre Casadebaig <pierre.casadebaig@toulouse.inra.fr>
+Author: Pierre Casadebaig <pierre.casadebaig@inra.fr>
+Maintainer: Pierre Casadebaig <pierre.casadebaig@inra.fr>
 URL: https://github.com/picasa/agridatasets
 BugReports: https://github.com/picasa/agridatasets/issues
 Imports:
